@@ -1,3 +1,4 @@
+
 function Stocks() {
   return (
     <div className='comp orange'>
