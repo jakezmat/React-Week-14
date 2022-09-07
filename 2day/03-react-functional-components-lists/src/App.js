@@ -22,6 +22,7 @@ function App() {
     <div className='main-wrapper background'>
       <Showcase />
       <BaseStats clicker={handleClick} stats={baseStats} />
+      <PokeMoves/>
     </div>
   );
 }
