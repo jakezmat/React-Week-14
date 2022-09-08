@@ -6,11 +6,11 @@ import { HoroscopeContext } from './context/HoroscopeContext';
 
 const Root = () => {
   return (
-    <HoroscopeContext.Provider value={{ sign: 'Leo' }}>
+    <HoroscopeProvider>
       <App />
-    </HoroscopeContext.Provider>
-  );
-};
+    </HoroscopeProvider>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
