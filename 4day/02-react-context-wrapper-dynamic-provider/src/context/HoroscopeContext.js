@@ -1,10 +1,14 @@
-import { createContext } from 'react';
+import { createContext, useState } from "react";
+import horoscopeObj from "../data/horoscopes";
 
 export const HoroscopeContext = createContext();
 
-const HoroscopeProvider = props => {
+const HoroscopeProvider = (props) => {
+  const [currentSign, setCurrentSign] = useState("Pisces");
+  const sign = horoscopeObj[currentSign];
+
   return (
-    <HoroscopeContext.Provider>
+    <HoroscopeContext.Provider value={{ sign, setCurrentSign }}>
       {props.children}
     </HoroscopeContext.Provider>
   );
