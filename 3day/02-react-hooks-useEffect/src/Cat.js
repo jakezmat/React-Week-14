@@ -11,22 +11,24 @@ const Cat = () => {
   );
   const [status, setStatus] = useState("");
 
-  useEffect(() => {
-    const colorInterval = setInterval(() => {
-      setColorNum((prevNum) => ++prevNum % colors.length);
-      console.log(colorNum, "right after setter");
-    }, 2000);
 
-    return () => clearInterval(colorInterval);
-  }, []);
 
-  useEffect(() => {
-    console.log("i rerendered (funtion invoked");
-  });
+    useEffect(()=>{
+      const yermom = setInterval(()=>{
+        setColorNum((prev)=> colors[prev]===colors[colors.length-1]? 0 :prev+1)
 
-  // useEffect(()=>{
-  //   console.log('inside useEffect, colorNum: ', colorNum)
-  // }, [colorNum])
+      }, 5000)
+      return () => clearInterval(yermom)
+    }, [])
+
+    // useEffect(() => {
+    //   const colorInterval = setInterval(() => {
+    //     setColorNum((prevNum) => ++prevNum % colors.length);
+    //     console.log(colorNum, "right after setter");
+    //   }, 2000);
+
+    //   return () => clearInterval(colorInterval);
+    // }, []);
 
   useEffect(() => {
     localStorage.setItem("catStatus", statusChange);
@@ -57,12 +59,14 @@ const Cat = () => {
       className="cat-container"
       style={{
         backgroundColor: colors[colorNum],
-        transition: "background-color 4s"
+        transition: "background-color 4s",
       }}
     >
       {/* {console.log(colorNum, 'jsx log')} */}
       <h1>Cat Status</h1>
-      <button onClick={() => history.push("/")}>Home</button>
+      <button onClick={() => {
+        history.push("/")
+        }}>Home</button>
       <div className="image-container">
         <img src={`https://http.cat/${statusChange}`} alt="404" />
       </div>
