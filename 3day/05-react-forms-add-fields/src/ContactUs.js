@@ -1,10 +1,12 @@
 import { useState } from 'react';
 
+
 function ContactUs() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-
+  const [comments, setComments] = useState('');
+  const [phoneType, setPhoneType] = useState('')
   const onSubmit = e => {
     // Prevent the default form behavior so the page doesn't reload.
     e.preventDefault();
@@ -14,6 +16,8 @@ function ContactUs() {
       name,
       email,
       phone,
+      comments,
+      phoneType,
       submittedOn: new Date()
     };
 
@@ -25,12 +29,14 @@ function ContactUs() {
     setName('');
     setEmail('');
     setPhone('');
+    setComments('')
+    setPhoneType('')
   };
 
   return (
     <div>
       <h2>Contact Us</h2>
-      <form onSubmit={onSubmit}>
+      <form className="submit-form"onSubmit={onSubmit}>
         <div>
           <label htmlFor='name'>Name:</label>
           <input
@@ -56,6 +62,25 @@ function ContactUs() {
             type='text'
             onChange={e => setPhone(e.target.value)}
             value={phone}
+          />
+          <select
+            name='phoneType'
+            onChange={e=>setPhoneType(e.target.value)}
+            value={phoneType}
+          >
+            <option value='' disabled>SELECT FROM phonetype WHERE type = urs</option>
+            <option>Home</option>
+            <option>Work</option>
+            <option>Mobile</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor='comments'>Comments:</label>
+          <textarea
+            id='comments'
+            name='comments'
+            onChange={e => setComments(e.target.value)}
+            value={comments}
           />
         </div>
         <button>Submit</button>
