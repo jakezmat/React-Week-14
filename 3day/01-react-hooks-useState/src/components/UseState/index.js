@@ -3,14 +3,13 @@ import "./UseState.css";
 
 const UseState = () => {
   const [theme,setTheme] = useState("light");
-  const [count,setCount] = useState(window.localStorage.getItem("item") || 0);
-
+  const [count, setCount] = useState(0)
   return (
     <div className={`state ${theme}`}>
       <h1>UseState Component</h1>
-      {/* <button onClick={() => setTheme('light')}>Light</button> */}
-      {/* <button onClick={() => setTheme('dark')}>Dark</button> */}
-      <button
+      <button onClick={() => setTheme('light')}>Light</button>
+      <button onClick={() => setTheme('dark')}>Dark</button>
+      {/* <button
         onClick={() =>
           theme==="dark" ? setTheme("light") : setTheme("dark")
         }
@@ -21,7 +20,7 @@ const UseState = () => {
       <button onClick={() => setCount(count+1)}>Increment</button>
       <button onClick={() => setCount((prevCount) => prevCount-1)}>
         Decrement
-      </button>
+      </button> */}
     </div>
   );
 };

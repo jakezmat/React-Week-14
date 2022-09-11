@@ -9,10 +9,7 @@ export default function ThemeProvider({ children }) {
 
   return (
     <ThemeContext.Provider
-      value={{
-        themeName,
-        setThemeName
-      }}
+      value={"night"}
     >
       {children}
     </ThemeContext.Provider>
