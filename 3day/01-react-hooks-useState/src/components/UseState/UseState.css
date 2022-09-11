@@ -18,11 +18,11 @@ button {
 .light {
   background-color: rgb(210, 247, 189);
   color: black;
-  height: 100vh;
+  height: 70vh;
 }
 
 .dark {
-  background-color: rgb(88, 8, 84);
+  background-color: rgb(48,48,48);
   color: white;
-  height: 100vh;
+  height: 70vh;
 }
